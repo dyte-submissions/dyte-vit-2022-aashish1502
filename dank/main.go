@@ -1,9 +1,9 @@
 package main
 
-import (
-	"fmt"
-)
+import dank "dank/src"
 
 func main() {
-	fmt.Println("Hello!")
+
+	dank.CheckVersion(dank.GetPackageData(dank.Test), "axios", "0.24.0")
+
 }

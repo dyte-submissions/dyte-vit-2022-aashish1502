@@ -1,4 +1,4 @@
-package main
+package dank
 
 import (
 	"encoding/csv"
@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-type repo struct {
+type Repo struct {
 	name string
 	repo string
 }
@@ -45,7 +45,7 @@ func readFile(file string) {
 
 	for _, line := range csvData {
 
-		repositoryData := repo{
+		repositoryData := Repo{
 			name: line[0],
 			repo: line[1],
 		}
