@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7948be03-68ba-4976-8814-68a7ebc80cfb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dank/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/dank/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dank/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/dank/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dank/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/dank/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dank/src/getData.go" beforeDir="false" afterPath="$PROJECT_DIR$/dank/src/getData.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dank/src/readFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/dank/src/readFile.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dank/src/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dank/test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dank/src/updateDependency.go" beforeDir="false" afterPath="$PROJECT_DIR$/dank/src/updateDependency.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
