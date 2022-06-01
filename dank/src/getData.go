@@ -34,15 +34,13 @@ func GetPackageData(repository Repo) []byte {
 
 	data, _ := ioutil.ReadAll(res.Body)
 
-	fmt.Println(string(packageJSONurl))
-
 	var JSONData map[string]interface{}
 
 	json.Unmarshal(data, &JSONData)
 
 	DependenciesJSON, _ := json.Marshal(JSONData["dependencies"])
 
-	fmt.Printf(string(DependenciesJSON))
+	//fmt.Printf(string(DependenciesJSON))
 	return DependenciesJSON
 }
 

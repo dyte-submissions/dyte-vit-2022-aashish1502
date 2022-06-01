@@ -88,11 +88,12 @@ func handler(getCmd *flag.FlagSet, name *string, pack *string, output *string, u
 	if *output == "" {
 		dank.WriteData(*name, data)
 	} else {
+		fmt.Println(*output)
 		if strings.Split(*output, ".")[1] != "csv" {
 			dank.WriteData(*output+".csv", data)
 		} else {
 			dank.WriteData(*output, data)
 		}
 	}
-	
+
 }
