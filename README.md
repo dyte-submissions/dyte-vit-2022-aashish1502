@@ -32,10 +32,8 @@
   <p align="center">
     dank is the dankest cli library to manage your nodeJS project dependencies to their correct version
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/github_username/repo_name">
     <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
     ·
     <a href="https://github.com/dyte-submissions/dyte-vit-2022-aashish1502/issues">Report a feature :)</a>
     ·
