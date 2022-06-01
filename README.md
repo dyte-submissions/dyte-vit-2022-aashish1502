@@ -47,9 +47,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+To use the project simplly follow the steps provided in the readme
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -73,7 +71,7 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* docker
+* docker (The docker code has not been tested and may not work :"( )
 
   ```sh
     docker container run -it -d --name my_nginx nginx sh
@@ -97,6 +95,32 @@ This is an example of how to list things you need to use the software and how to
    dank --help
    ```
 
+   ## or
+ 
+ </br>
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/dyte-submissions/dyte-vit-2022-aashish1502.git
+   ```
+
+2. Buil the go code
+   ```sh
+
+    cd dyte-vit-2022-aashish1502
+    cd dank
+    go build .
+
+   ```
+
+   ### You can run the code by using 
+
+   ```sh
+   
+    dank check -input="test.csv" -output="out.csv" -pack="axios@0.24.0"
+
+   ```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -106,23 +130,19 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
 
-TODO: this
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+The cli works with the check flag as
+```
+  check: checks for the dependency versions
+  output: puts the output data in the specified csv file
+  update: updates and cretes a PR for the app dependencies
+  pack: name of the package you want to check
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+  dank check -input="test.csv" -pack="axios@0.24.4
+
+```
 
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

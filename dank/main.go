@@ -34,7 +34,8 @@ func main() {
 		handler(getCmd, getCSV, getPack, getOutput, getUpdate)
 
 	default:
-
+		fmt.Println("To use the cli")
+		getCmd.PrintDefaults()
 	}
 
 }
@@ -82,6 +83,10 @@ func handler(getCmd *flag.FlagSet, name *string, pack *string, output *string, u
 			x = []string{repositoryData.Name, repositoryData.Repo, currVersion, "no"}
 		}
 		data = append(data, x)
+
+		if *update {
+			dank.UpdateDependency(repositoryData, dependency[0], dependency[1])
+		}
 
 	}
 
