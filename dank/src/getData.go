@@ -12,7 +12,7 @@ import (
 var Test = Repo{
 
 	name: "dyte-react-sample-app",
-	repo: "https://github.com/dyte-in/react-sample-app/",
+	repo: "https://github.com/aashish1502/react-sample-app.git",
 }
 
 func GetPackageData(repository Repo) []byte {

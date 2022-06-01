@@ -43,12 +43,16 @@ func readFile(file string) {
 
 	csvData = csvData[1:]
 
+	var myMap map[string]Repo
+
 	for _, line := range csvData {
 
 		repositoryData := Repo{
 			name: line[0],
 			repo: line[1],
 		}
+
+		myMap[line[1]] = repositoryData
 
 		//TODO: channel it to a function that takes the data and uses the repo link.
 		fmt.Println(repositoryData)
@@ -57,8 +61,14 @@ func readFile(file string) {
 
 }
 
-func main() {
+func WriteData(file string, check string, repository Repo, myMap map[string]Repo, version_satisfied bool) {
 
-	readFile("test.csv")
+	csvFile, err := os.Create(file)
+
+	if err != nil {
+		fmt.Println("can't write in the csv file make sure the file is correct")
+		os.Exit(1)
+	}
+	defer csvFile.Close()
 
 }
