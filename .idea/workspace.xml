@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7948be03-68ba-4976-8814-68a7ebc80cfb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dyte-vit-2022-aashish1502.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dank/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dank/src/updateDependency.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dank/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/dank/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dank/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/dank/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dank/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/dank/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dank/src/getData.go" beforeDir="false" afterPath="$PROJECT_DIR$/dank/src/getData.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dank/src/readFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/dank/src/readFile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dank/src/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dank/test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dank/src/updateDependency.go" beforeDir="false" afterPath="$PROJECT_DIR$/dank/src/updateDependency.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +56,11 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Einstein\Desktop\codes\cliCode\dyte-vit-2022-aashish1502\dank" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="go build dank" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="dyte-vit-2022-aashish1502" />

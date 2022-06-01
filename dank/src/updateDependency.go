@@ -1,7 +1,6 @@
 package dank
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/tidwall/sjson"
 	"io/fs"
@@ -13,20 +12,20 @@ import (
 
 func UpdateDependency(repo Repo, name string, version string) {
 
-	repository := strings.Split(repo.repo, "/")
+	repository := strings.Split(repo.Repo, "/")
 	repoName := repository[len(repository)-1]
 	repoName = strings.ReplaceAll(repoName, ".git", "")
 	fmt.Println(repoName)
 	x, _ := os.Getwd()
 	fmt.Println(x)
 
-	git := repo.repo
+	git := repo.Repo
 	cmd := exec.Command("git", "clone", git)
 	fmt.Println("cloning")
 	err := cmd.Run()
 
 	if err != nil {
-		fmt.Println("unable to clone repository", repo.repo)
+		fmt.Println("unable to clone repository", repo.Repo)
 		os.Exit(1)
 	}
 
@@ -44,8 +43,18 @@ func UpdateDependency(repo Repo, name string, version string) {
 
 	str := "dank: updated " + name + " to version " + version
 	str_1 := "dank/update-1"
-	cmd = exec.Command("git", "checkout", str_1, "||", "git", "checkout", "-b", str_1)
+	cmd = exec.Command("git", "checkout", "-b", str_1)
 	err = cmd.Run()
+
+	if err != nil {
+		cmd = exec.Command("git", "checkout", str_1)
+		err = cmd.Run()
+
+		if err != nil {
+			fmt.Println("Cannot change into the branch")
+			os.Exit(1)
+		}
+	}
 
 	content, e := ioutil.ReadFile("package.json")
 
@@ -56,30 +65,31 @@ func UpdateDependency(repo Repo, name string, version string) {
 
 	data, _ := sjson.Set(string(content), "dependencies."+name, "^"+version)
 
-	fmt.Println(data)
-
-	JSONData, _ := json.Marshal(data)
-
-	fmt.Println(JSONData)
-
-	check := json.Valid(JSONData)
-
-	if check {
-		fmt.Println("JSON valid")
-	} else {
-		fmt.Println("JSON invalid")
-	}
-
 	ioutil.WriteFile("package.json", []byte(data), fs.FileMode(0644))
 
 	cmd = exec.Command("git", "add", ".")
-	cmd.Run()
+	err = cmd.Run()
+
+	if err != nil {
+		fmt.Println("cannot git add")
+		os.Exit(1)
+	}
 
 	cmd = exec.Command("git", "commit", "-m", str)
-	cmd.Run()
+	err = cmd.Run()
+
+	if err != nil {
+		fmt.Println("cannot commit")
+		os.Exit(1)
+	}
 
 	cmd = exec.Command("git", "push", "-u", "origin", str_1)
-	cmd.Run()
+	err = cmd.Run()
+
+	if err != nil {
+		fmt.Println("unable to push")
+		os.Exit(1)
+	}
 
 	fmt.Println(x)
 	err = os.Chdir(x)

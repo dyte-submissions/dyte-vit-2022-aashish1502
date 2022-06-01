@@ -3,12 +3,13 @@ package dank
 import (
 	"encoding/csv"
 	"fmt"
+	"log"
 	"os"
 )
 
 type Repo struct {
-	name string
-	repo string
+	Name string
+	Repo string
 }
 
 /*
@@ -23,7 +24,7 @@ proccess:
 
 */
 
-func readFile(file string) {
+func ReadFile(file string) [][]string {
 
 	csvFile, err := os.Open(file)
 
@@ -42,33 +43,26 @@ func readFile(file string) {
 	}
 
 	csvData = csvData[1:]
-
-	var myMap map[string]Repo
-
-	for _, line := range csvData {
-
-		repositoryData := Repo{
-			name: line[0],
-			repo: line[1],
-		}
-
-		myMap[line[1]] = repositoryData
-
-		//TODO: channel it to a function that takes the data and uses the repo link.
-		fmt.Println(repositoryData)
-
-	}
+	return csvData
 
 }
 
-func WriteData(file string, check string, repository Repo, myMap map[string]Repo, version_satisfied bool) {
+func WriteData(file string, data [][]string) {
 
-	csvFile, err := os.Create(file)
+	f, err := os.Create(file)
+	defer f.Close()
 
 	if err != nil {
-		fmt.Println("can't write in the csv file make sure the file is correct")
-		os.Exit(1)
-	}
-	defer csvFile.Close()
 
+		log.Fatalln("failed to open file", err)
+	}
+
+	w := csv.NewWriter(f)
+	defer w.Flush()
+
+	for _, record := range data {
+		if err := w.Write(record); err != nil {
+			log.Fatalln("error writing record to file", err)
+		}
+	}
 }

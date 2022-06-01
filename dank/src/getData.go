@@ -11,22 +11,22 @@ import (
 
 var Test = Repo{
 
-	name: "dyte-react-sample-app",
-	repo: "https://github.com/aashish1502/react-sample-app.git",
+	Name: "dyte-react-sample-app",
+	Repo: "https://github.com/aashish1502/react-sample-app.git",
 }
 
 func GetPackageData(repository Repo) []byte {
 
 	url := "https://raw.githubusercontent.com"
-	extention := strings.Split(repository.repo, "github.com")[1]
+	extention := strings.Split(repository.Repo, "github.com")[1]
 	url += extention
 
-	packageJSONurl := url + "main/package.json"
+	packageJSONurl := url + "/main/package.json"
 
 	res, err := http.Get(packageJSONurl)
 
 	if err != nil {
-		fmt.Println("The Url for the repository", repository.repo, "is incorrect")
+		fmt.Println("The Url for the repository", repository.Repo, "is incorrect")
 		os.Exit(1)
 	}
 
@@ -34,19 +34,22 @@ func GetPackageData(repository Repo) []byte {
 
 	data, _ := ioutil.ReadAll(res.Body)
 
+	fmt.Println(string(packageJSONurl))
+
 	var JSONData map[string]interface{}
 
 	json.Unmarshal(data, &JSONData)
 
 	DependenciesJSON, _ := json.Marshal(JSONData["dependencies"])
 
+	fmt.Printf(string(DependenciesJSON))
 	return DependenciesJSON
 }
 
-func GetPackageLockData(repository Repo) {
+func GetPackageLockData(repository Repo) []byte {
 
 	url := "https://raw.githubusercontent.com"
-	extention := strings.Split(repository.repo, "github.com")[1]
+	extention := strings.Split(repository.Repo, "github.com")[1]
 	url += extention
 
 	packageLockJSONurl := url + "main/package-lock.json"
@@ -54,7 +57,7 @@ func GetPackageLockData(repository Repo) {
 	res, err := http.Get(packageLockJSONurl)
 
 	if err != nil {
-		fmt.Println("The Url for the repository", repository.repo, "is incorrect")
+		fmt.Println("The Url for the repository", repository.Repo, "is incorrect")
 		os.Exit(1)
 	}
 
@@ -68,20 +71,20 @@ func GetPackageLockData(repository Repo) {
 
 	test, _ := json.Marshal(JSONData["dependencies"])
 
-	fmt.Printf(string(test))
+	return test
 
 }
 
-func CheckVersion(JSONData []byte, name string, version string) {
+func CheckVersion(JSONData []byte, name string, version string) (string, bool) {
 
 	var data map[string]interface{}
 
 	json.Unmarshal(JSONData, &data)
 
 	if data[name] == "^"+version {
-		fmt.Println("Correct Version")
+		return data[name].(string), true
 	} else {
-		fmt.Println("incorrect version")
+		return data[name].(string), false
 	}
 
 }
